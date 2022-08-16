@@ -31,14 +31,14 @@
       </section>
       <section class="container" v-if="winner">
         <h2>Game Over!</h2>
-        <h3 v-if="winner === 'monster'">You Lost!</h3>
+        <h3 v-if="winner === 'monster'">You lost!</h3>
         <h3 v-else-if="winner === 'player'">You won!</h3>
         <h3 v-else>It's a draw!</h3>
-        <button @click="startGame">Start a new Game!</button>
+        <button @click="startGame">Start New Game</button>
       </section>
       <section id="controls" v-else>
-        <button @click="attackMoster">ATTACK</button>
-        <button :disabled="disableAttack" @click="specialAttackMonster">
+        <button @click="attackMonster">ATTACK</button>
+        <button :disabled="mayUseSpecialAttack" @click="specialAttackMonster">
           SPECIAL ATTACK
         </button>
         <button @click="healPlayer">HEAL</button>
@@ -53,13 +53,13 @@
               >{{ logMessage.actionBy === 'player' ? 'Player' : 'Monster'
               }}</span
             >
-            <span v-if="logMessage.actionType === 'heal' "
-              >heals himself for
-              <span class="log--heal">{{logMessage.actionValue}}</span>
-            </span>
+            <span v-if="logMessage.actionType === 'heal'">
+              heals himself for
+              <span class="log--heal">{{ logMessage.actionValue }}</span></span
+            >
             <span v-else>
               attacks and deals
-              <span class="log-damage">{{logMessage.actionValue}}</span>
+              <span class="log--damage">{{ logMessage.actionValue }}</span>
             </span>
           </li>
         </ul>
