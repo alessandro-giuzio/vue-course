@@ -12,6 +12,7 @@
 
 <script>
 import LearningResource from './LearningResource.vue';
+
 export default {
   inject: ['resources'],
   components: {
@@ -19,6 +20,7 @@ export default {
   },
 };
 </script>
+
 <style scoped>
 ul {
   list-style: none;

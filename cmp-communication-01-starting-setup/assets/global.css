@@ -1,7 +1,13 @@
-body {
-  margin: 0;
+#app input {
+  font: inherit;
+  padding: 0.15rem;
 }
-
-p {
-  color: red;
+#app label {
+  font-weight: bold;
+  margin-right: 1rem;
+  width: 7rem;
+  display: inline-block;
+}
+#app form div {
+  margin: 1rem 0;
 }

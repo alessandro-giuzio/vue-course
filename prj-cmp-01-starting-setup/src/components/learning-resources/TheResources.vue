@@ -2,18 +2,17 @@
   <base-card>
     <base-button
       @click="setSelectedTab('stored-resources')"
-      :mode="storedResButton"
-      >Stored Resources</base-button
-    >
-    <base-button @click="setSelectedTab('add-resources')" :mode="addResButton"
-      >Add Resource</base-button
-    >
+      :mode="storedResButtonMode"
+    >Stored Resources</base-button>
+    <base-button @click="setSelectedTab('add-resource')" :mode="addResButtonMode">Add Resource</base-button>
   </base-card>
   <component :is="selectedTab"></component>
 </template>
+
 <script>
 import StoredResources from './StoredResources.vue';
 import AddResource from './AddResource.vue';
+
 export default {
   components: {
     StoredResources,
@@ -26,14 +25,14 @@ export default {
         {
           id: 'official-guide',
           title: 'Official Guide',
-          description: 'A comprehensive guide to Vue.js',
-          link: 'https://vuejs.org/v2/guide/',
+          description: 'The official Vue.js documentation.',
+          link: 'https://vuejs.org',
         },
         {
           id: 'google',
           title: 'Google',
-          description: 'The internets source of knowledge.',
-          link: 'https://www.google.com/',
+          description: 'Learn to google...',
+          link: 'https://google.org',
         },
       ],
     };
@@ -44,11 +43,11 @@ export default {
     };
   },
   computed: {
-    storedResButton() {
-      return this.selectedTab === 'stored-resources' ? 'primary' : 'flat';
+    storedResButtonMode() {
+      return this.selectedTab === 'stored-resources' ? null : 'flat';
     },
-    addResButton() {
-      return this.selectedTab === 'add-resources' ? 'primary' : 'flat';
+    addResButtonMode() {
+      return this.selectedTab === 'add-resource' ? null : 'flat';
     },
   },
   methods: {

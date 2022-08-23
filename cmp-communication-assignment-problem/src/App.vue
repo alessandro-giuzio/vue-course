@@ -1,9 +1,8 @@
 <template>
-  <section>
-    <h1>Prova titolo</h1>
+  <div>
     <active-user :username="user.name" :userage="user.age"></active-user>
-    <user-data @setdata="setUserData"></user-data>
-  </section>
+    <user-data @set-data="setUserData"></user-data>
+  </div>
 </template>
 
 <script>
